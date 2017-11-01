@@ -1,0 +1,6 @@
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :content, label: "Text us about your experience", placeholder: "The quality of the food, the atmosphere, the prices..." %>
+  <%= f.input :rating, collection: 0..5, prompt: "Rate this restaurant", selected: 3 %>
+  <%= f.button :submit %>
+<% end %>
