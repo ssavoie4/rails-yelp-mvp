@@ -3,13 +3,15 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
+  def new
+    @restaurant = Restaurant.new
+  end
+
   def create
   end
 
-  def new
-  end
-
   def show
+    @restaurant = Restaurant.find(params[:id])
   end
 
   private
