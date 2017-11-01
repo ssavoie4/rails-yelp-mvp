@@ -1,14 +1,38 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <h2>The restaurants in near you</h2>
+<div class="content-wrapper">
+  <div class="top-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <h3>The restaurants near you</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
       <% @restaurants.each do |restaurant| %>
-        <h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4>
-        <p><%= restaurant.category %></p>
-        <p><%= restaurant.address %></p>
+        <div class="col-xs-10 col-xs-offset-1">
+            <div class="card">
+              <h5><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
+              <div class="card-rating">
+                <% if restaurant.avg_rating %>
+                  <% restaurant.avg_rating.times do %>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  <% end %>
+                  <% (5 - restaurant.avg_rating).times do %>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                  <% end %>
+                <% else %>
+                  <p>No reviews yet</p>
+                <% end %>
+              </div>
+              <p><%= restaurant.category %></p>
+              <p><%= restaurant.address %></p>
+          </div>
+        </div>
       <% end %>
-      <%= link_to "Add a Restaurant", new_restaurant_path %>
     </div>
   </div>
 </div>
+
 
