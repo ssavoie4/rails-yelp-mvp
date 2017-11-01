@@ -1,0 +1,8 @@
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, label: "Enter the restaurant name", placeholder: "Le Papillon" %>
+  <%= f.input :address, label: "Enter the restaurant address", placeholder: "123 Rue Elmire, Montreal"  %>
+  <%= f.input :phone_number, label: "Enter the restaurant phone number", placeholder: "514-250-9287"  %>
+  <%= f.input :category, collection: Restaurant::CATEGORY, prompt: "Choose a category", selected: "french" %>
+  <%= f.button :submit %>
+<% end %>
